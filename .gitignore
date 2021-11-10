@@ -1,0 +1,7 @@
+/files/runtime/certbot/certificates/*
+!/files/runtime/certbot/certificates/.keep
+/files/runtime/certbot/www/.well-known/acme-challenge/*
+!/files/runtime/certbot/www/.well-known/acme-challenge/.keep
+/files/nginx/*
+!/files/nginx/default.conf
+/files/htpasswd

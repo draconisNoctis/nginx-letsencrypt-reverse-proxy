@@ -1,0 +1,19 @@
+version: '2'
+services:
+  nginx:
+    image: nginx
+    network_mode: host
+    # Reload nginx config every 6 hours
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    volumes:
+    - ./files/nginx:/etc/nginx/conf.d
+    - ./files/htpasswd:/etc/nginx/.htpasswd
+    - ./files/runtime/certbot/www:/var/www/certbot
+    - ./files/runtime/certbot/certificates:/etc/letsencrypt
+  certbot:
+    image: certbot/certbot
+    # Run cert reneval every 12 hours
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew -v; chmod -R 0777 /etc/letsencrypt; sleep 12h & wait $${!}; done;'"
+    volumes:
+    - ./files/runtime/certbot/www:/var/www/certbot
+    - ./files/runtime/certbot/certificates:/etc/letsencrypt
