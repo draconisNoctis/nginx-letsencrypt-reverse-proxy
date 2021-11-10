@@ -1,4 +1,4 @@
-# Nginx Reverse HTTPS Proxy
+# Nginx Letsencrypt Reverse Proxy
 
 ## Setup
 
