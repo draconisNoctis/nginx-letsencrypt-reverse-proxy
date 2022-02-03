@@ -21,7 +21,7 @@ Run `(echo -n "USERNAME"; echo -n ":"; openssl passwd -apr1) >> ./files/htpasswd
 
     Domain and local port can be repeated
 
-    Example: test@example.com ./setup.sh www.example.com:8080 www2.example.com:8090
+    Example: ./setup.sh test@example.com www.example.com:8080 www2.example.com:8090
 ```
 
 ## Reload Nginx config
