@@ -10,14 +10,14 @@
 
 ## htpasswd
 
-Run `(echo -n "USERNAME"; echo -n ":"; openssl passwd -apr1) >> ./files/htpasswd` to add a user to the passwd file.
+Run `(echo -n "<YOUR_USERNAME>"; echo -n ":"; openssl passwd -apr1) >> ./files/htpasswd` to add a user to the passwd file.
 
 ## `./setup.sh`
 
 **Running `./setup.sh` will overwrite all configs for every given domain**
 
 ```
-./setup.sh <email> <domain>:<local port> [...]
+./setup.sh <email> <sub-domain>.<host>:<local port> [...]
 
     Domain and local port can be repeated
 
